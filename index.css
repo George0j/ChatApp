@@ -1,0 +1,58 @@
+ 
+
+.chat{
+    box-sizing: content-box;
+    background: powderblue;
+    display: block;
+    width: 90%;
+    height: 554px;
+    margin: auto;
+    padding: 0%;
+    text-justify: auto;
+    text-align: center;
+    justify-content: center;
+    margin-top: 0;
+    border: 5px solid black;
+    font-size: medium;
+
+}
+.chat h1{
+    text-shadow: -2px -2px 2px black;
+}
+.chat textarea{
+    margin-bottom: 0;
+    border-radius: 10px;
+    width: 320px;
+    height: 1.5em;
+    font: grey;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    border: 3px solid black;
+    visibility: hidden;
+}
+.chat button{
+    font-style: italic;
+    font-weight: 700;
+    background-color: aqua;
+    border-radius: 10px;
+        text-shadow: 1px -1px 10px rgb(27, 23, 23);
+}
+.pop-up form{
+    margin:auto;
+    background-image: linear-gradient(to bottom,white,blue,pink);
+    display: block;
+    width: 330px;
+    height: 13em;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    align-content: center;
+    border: 2px solid black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    text-shadow: 5px 5px 30px pink,5px -5px 30px pink;
+    box-sizing: content-box;
+    box-shadow: 0px 5px 15px black;
+    border-radius: 5px;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn:tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="chat pop-up">
+        <h1>PRIVATE CHAT </h1>
+    <textarea name="messages" id="txt" placeholder="Write your message here"></textarea>
+    <button type="send" id="btn">Send</button>
+        <form id="form">
+            <input id="Username" type="Name"  placeholder="Username" required><br><br><br>
+        <button type="button" onclick="x()">Chat</button>
+
+        </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+<script>
+//js
+    function x(){
+        var y = document.getElementById("form");
+        var z = document.getElementById("txt");
+        y.style.display="none";
+        z.style.visibility="visible";
+    };
+//socket
+    let socket = io();
+    let btn = document.getElementById("btn");
+    let Username = document.getElementById("Username");
+    let message = document.getElementById("txt");
+    let chatArea = document.getElementsByClassName("chat")[0];
+    let form = document.getElementById("form");
+    btn.addEventListener("click",(e)=>{
+        e.preventDefault();
+        if(message.value){
+            socket.emit('send Username',Username.value);
+            socket.emit('send message',message.value);
+            message.value="";
+        }
+    });
+
+    socket.on('send Username',(x)=>{
+        let un = document.createElement('p');
+        un.style.backgroundColor = 'black';
+        un.style.width="5%";
+        un.style.borderRadius="10pz";
+        un.style.textAlign="right";
+        un.style.color="white";
+        un.textContent=x;
+        chatArea.appendChild(un);
+    });
+    socket.on('send message',(mg)=>{
+        let Msg = document.createElement('p');
+        Msg.style.width="10%";
+        Msg.style.height="10%";
+        Msg.style.backgroundColor="Pink";
+        Msg.style.borderRadius="10px";
+        Msg.style.textAlign="right";
+        Msg.style.color="white";
+        Msg.textContent =mg;
+        chatArea.appendChild(Msg);
+    });
+
+</script>
+<style>
+     
+
+.chat{
+    box-sizing: content-box;
+    background: powderblue;
+    display: block;
+    width: 90%;
+    height: 554px;
+    margin: auto;
+    padding: 0%;
+    text-justify: auto;
+    text-align: center;
+    justify-content: center;
+    margin-top: 0;
+    border: 5px solid black;
+    font-size: medium;
+
+}
+.chat h1{
+    text-shadow: -2px -2px 2px black;
+}
+.chat textarea{
+    margin-bottom: 0;
+    border-radius: 10px;
+    width: 320px;
+    height: 1.5em;
+    font: grey;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    border: 3px solid black;
+    visibility: hidden;
+}
+.chat button{
+    font-style: italic;
+    font-weight: 700;
+    background-color: aqua;
+    border-radius: 10px;
+    text-shadow: 1px -1px 10px rgb(27, 23, 23);
+}
+.pop-up form{
+    margin:auto;
+    background-image: linear-gradient(to bottom,white,blue,pink);
+    display: block;
+    width: 330px;
+    height: 13em;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    align-content: center;
+    border: 2px solid black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    text-shadow: 5px 5px 30px pink,5px -5px 30px pink;
+    box-sizing: content-box;
+    box-shadow: 0px 5px 15px black;
+    border-radius: 5px;
+}
+</style>
+</body>
+
+</html>
