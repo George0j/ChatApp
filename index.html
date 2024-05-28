@@ -47,7 +47,7 @@
         let un = document.createElement('p');
         un.style.backgroundColor = 'black';
         un.style.width="5%";
-        un.style.borderRadius="10pz";
+        un.style.borderRadius="10px";
         un.style.textAlign="right";
         un.style.color="white";
         un.textContent=x;
@@ -63,6 +63,7 @@
         Msg.style.color="white";
         Msg.textContent =mg;
         chatArea.appendChild(Msg);
+        window.scrollTo(0, document.body.scrollHeight);
     });
 
 </script>
